@@ -19,7 +19,7 @@ import { AdPlaceholder } from '@/components/AdBanner';
 import MapWrapper from '@/components/MapWrapper';
 import { fetchAllHantavirusData } from '@/lib/data';
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export default async function Home() {
   const data = await fetchAllHantavirusData();

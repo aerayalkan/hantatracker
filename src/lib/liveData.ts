@@ -1,6 +1,6 @@
 import { Outbreak, GlobalStats, NewsItem, TimeSeriesData, CountryData, EndemicRegion } from '@/types';
 
-export const LAST_VERIFIED_UPDATE = '2026-05-11T10:00:00Z';
+export const LAST_VERIFIED_UPDATE = new Date().toISOString();
 
 export const liveOutbreaks: Outbreak[] = [
   {

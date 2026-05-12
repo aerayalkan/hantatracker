@@ -54,7 +54,7 @@ export async function fetchWHOHantavirusData(): Promise<WHODonItem[]> {
         headers: {
           'Accept': 'application/json',
         },
-        next: { revalidate: 3600 }
+        next: { revalidate: 300 }
       }
     );
 
@@ -75,7 +75,7 @@ export async function fetchECDCData(): Promise<Outbreak[]> {
     const response = await fetch(
       'https://atlas.ecdc.europa.eu/api/data?Disease=Hantavirus%20infection&Year=2024,2025,2026&Format=json',
       {
-        next: { revalidate: 86400 }
+        next: { revalidate: 300 }
       }
     );
     
@@ -120,7 +120,7 @@ export async function fetchProMEDData(): Promise<NewsItem[]> {
   try {
     const response = await fetch(
       'https://api.rss2json.com/v1/api.json?rss_url=https://promedmail.org/feed/',
-      { next: { revalidate: 1800 } }
+      { next: { revalidate: 300 } }
     );
     
     if (!response.ok) return [];
