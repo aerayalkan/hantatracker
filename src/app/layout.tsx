@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hantatracker.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://hantatracker-alpha.vercel.app'),
   title: {
     default: "Hantavirus Tracker 2026 - Live Global Outbreak Map & Real-Time Cases",
     template: "%s | HantaTracker - Hantavirus Monitoring"
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://hantatracker.com',
+    url: 'https://hantatracker-alpha.vercel.app',
     siteName: 'HantaTracker',
     title: 'Hantavirus Tracker 2026 - Live Global Outbreak Map',
     description: 'Real-time hantavirus outbreak tracking with interactive world map. Monitor current cases, deaths, and outbreaks from WHO, CDC, ECDC data. Updated every 5 minutes.',
@@ -128,14 +128,14 @@ export const metadata: Metadata = {
     site: '@hantatracker',
   },
   alternates: {
-    canonical: 'https://hantatracker.com',
+    canonical: 'https://hantatracker-alpha.vercel.app',
     languages: {
-      'en-US': 'https://hantatracker.com',
-      'es': 'https://hantatracker.com',
-      'de': 'https://hantatracker.com',
-      'fr': 'https://hantatracker.com',
-      'pt': 'https://hantatracker.com',
-      'zh': 'https://hantatracker.com',
+      'en-US': 'https://hantatracker-alpha.vercel.app',
+      'es': 'https://hantatracker-alpha.vercel.app',
+      'de': 'https://hantatracker-alpha.vercel.app',
+      'fr': 'https://hantatracker-alpha.vercel.app',
+      'pt': 'https://hantatracker-alpha.vercel.app',
+      'zh': 'https://hantatracker-alpha.vercel.app',
     },
   },
   category: 'Health',

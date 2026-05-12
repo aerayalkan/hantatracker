@@ -34,8 +34,7 @@ User-agent: MJ12bot
 Disallow: /
 
 # Sitemaps
-Sitemap: https://hantatracker.com/sitemap.xml
 Sitemap: https://hantatracker-alpha.vercel.app/sitemap.xml
 
 # Host
-Host: https://hantatracker.com
+Host: https://hantatracker-alpha.vercel.app
