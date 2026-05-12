@@ -141,7 +141,7 @@ export const metadata: Metadata = {
   category: 'Health',
   classification: 'Disease Surveillance',
   verification: {
-    google: 'your-google-verification-code',
+    google: 'google1cc2b42ada015d38',
     yandex: 'your-yandex-verification-code',
   },
   other: {
