@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Activity, BarChart3, BookOpen, Database } from 'lucide-react';
+import { Menu, X, Activity, BarChart3, BookOpen, Database, AlertTriangle, Shield, ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -18,8 +19,14 @@ export default function Header() {
   const navigation = [
     { name: 'Live Map', href: '#map', icon: Activity },
     { name: 'Outbreaks', href: '#outbreaks', icon: BarChart3 },
-    { name: 'About', href: '#about', icon: BookOpen },
-    { name: 'Sources', href: '#sources', icon: Database },
+  ];
+
+  const learnMenu = [
+    { name: 'Symptoms', href: '/symptoms', desc: 'Early warning signs' },
+    { name: 'Transmission', href: '/transmission', desc: 'How it spreads' },
+    { name: 'Prevention', href: '/prevention', desc: 'Protect yourself' },
+    { name: 'Treatment', href: '/treatment', desc: 'Medical care' },
+    { name: 'FAQ', href: '/faq', desc: 'Common questions' },
   ];
 
   return (
@@ -62,6 +69,42 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            
+            {/* Learn Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onBlur={() => setTimeout(() => setDropdownOpen(false), 150)}
+                className="flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-medium text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all"
+              >
+                <BookOpen className="w-3.5 h-3.5" />
+                Learn
+                <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {dropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 py-2 glass-card rounded-xl shadow-2xl border border-white/10">
+                  {learnMenu.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="flex flex-col px-4 py-2.5 hover:bg-white/5 transition-colors"
+                    >
+                      <span className="text-sm font-medium text-white">{item.name}</span>
+                      <span className="text-xs text-slate-500">{item.desc}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            <Link
+              href="#sources"
+              className="flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-medium text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all"
+            >
+              <Database className="w-3.5 h-3.5" />
+              Sources
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -100,6 +143,28 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
+              <div className="border-t border-white/[0.06] my-2 pt-2">
+                <p className="px-3 py-1 text-xs text-slate-500 uppercase tracking-wider">Learn About Hantavirus</p>
+                {learnMenu.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex flex-col px-3 py-2.5 hover:bg-white/[0.04] rounded-lg"
+                  >
+                    <span className="text-sm font-medium text-slate-300">{item.name}</span>
+                    <span className="text-xs text-slate-500">{item.desc}</span>
+                  </Link>
+                ))}
+              </div>
+              <Link
+                href="#sources"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.04] rounded-lg"
+              >
+                <Database className="w-4 h-4" />
+                Sources
+              </Link>
             </div>
           </div>
         )}

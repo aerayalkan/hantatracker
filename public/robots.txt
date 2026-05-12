@@ -1,4 +1,41 @@
+# HantaTracker Robots.txt
+# https://hantatracker.com
+
+# Allow all crawlers full access
 User-agent: *
 Allow: /
 
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Yandex specific
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemaps
 Sitemap: https://hantatracker.com/sitemap.xml
+Sitemap: https://hantatracker-alpha.vercel.app/sitemap.xml
+
+# Host
+Host: https://hantatracker.com
